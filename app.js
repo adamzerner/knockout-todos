@@ -11,6 +11,22 @@ vm.todos = ko.observableArray([
   new Todo('two'),
   new Todo('three')
 ]);
+vm.currRoute = ko.observable('all');
+vm.filteredTodos = ko.computed(function() {
+  if (vm.currRoute() === 'all') {
+    return vm.todos();
+  }
+  else if (vm.currRoute() === 'remaining') {
+    return vm.todos().filter(function(todo) {
+      return !todo.completed;
+    });
+  }
+  else if (vm.currRoute() === 'completed') {
+    return vm.todos().filter(function(todo) {
+      return todo.completed;
+    });
+  }
+});
 vm.newTitle = ko.observable();
 vm.addTodo = function() {
   var newTitle = vm.newTitle();
@@ -21,7 +37,6 @@ vm.addTodo = function() {
 vm.remove = function() {
   vm.todos.remove(this);
 };
-vm.currRoute = ko.observable('all');
 vm.updateRoute = function(route) {
   vm.currRoute(route);
 };

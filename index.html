@@ -20,7 +20,7 @@
       <input class='form-control' data-bind='textInput: newTitle'>
     </form>
     <br />
-    <ul class='list-group' data-bind='foreach: todos'>
+    <ul class='list-group' data-bind='foreach: filteredTodos'>
       <li class='list-group-item'>
         <input type='checkbox' data-bind='checked: completed'>
         <span data-bind='text: title'></span>
