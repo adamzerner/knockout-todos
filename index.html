@@ -22,7 +22,7 @@
     <br />
     <ul class='list-group' data-bind='foreach: todos'>
       <li class='list-group-item'>
-        <input type='checkbox'>
+        <input type='checkbox' data-bind='checked: completed'>
         <span data-bind='text: title'></span>
         <button class='close' data-bind='click: $root.remove'>&times;</button>
       </li>
