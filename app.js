@@ -18,6 +18,9 @@ vm.addTodo = function() {
   vm.todos.push(newTodo);
   $('input').blur().val('');
 };
+vm.remove = function() {
+  vm.todos.remove(this);
+};
 
 ko.applyBindings(vm);
 

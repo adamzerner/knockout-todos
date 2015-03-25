@@ -21,7 +21,10 @@
     </form>
     <br />
     <ul class='list-group' data-bind='foreach: todos'>
-      <li class='list-group-item' data-bind='text: title'></li>
+      <li class='list-group-item'>
+        <span data-bind='text: title'></span>
+        <button class='close' data-bind='click: $root.remove'>&times;</button>
+      </li>
     </ul>
   </div>
 
