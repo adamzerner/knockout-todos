@@ -21,6 +21,10 @@ vm.addTodo = function() {
 vm.remove = function() {
   vm.todos.remove(this);
 };
+vm.currRoute = ko.observable('all');
+vm.updateRoute = function(route) {
+  vm.currRoute(route);
+};
 
 ko.applyBindings(vm);
 

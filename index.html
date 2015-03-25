@@ -22,10 +22,37 @@
     <br />
     <ul class='list-group' data-bind='foreach: todos'>
       <li class='list-group-item'>
+        <input type='checkbox'>
         <span data-bind='text: title'></span>
         <button class='close' data-bind='click: $root.remove'>&times;</button>
       </li>
     </ul>
+    <hr />
+    <nav>
+      <ul class='nav nav-pills'>
+        <li 
+          data-bind='
+            css: { active: currRoute() === "all" }, 
+            click: updateRoute.bind($data, "all")
+          '>
+          <a>All</a>
+        </li>
+        <li 
+          data-bind='
+            css: { active: currRoute() === "remaining" },
+            click: updateRoute.bind($data, "remaining")
+          '>
+          <a>Remaining</a>
+        </li>
+        <li 
+          data-bind='
+            css: { active: currRoute() === "completed" },
+            click: updateRoute.bind($data, "completed")
+          '>
+          <a>Completed</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 
 </body>
